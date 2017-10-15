@@ -39,11 +39,7 @@ const appRoutes: Routes = [
 ]
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyCktMgT6CSuodNAiQwFzfxZ_-utF1GLpRk",
-  authDomain: "ponyplayer-52810.firebaseapp.com",
-  databaseURL: "https://ponyplayer-52810.firebaseio.com",
-  storageBucket: "ponyplayer-52810.appspot.com",
-  messagingSenderId: "254092893520"
+  //removed for security
 }
 
 @NgModule({
