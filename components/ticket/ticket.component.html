@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-header bg-success text-white">
+      Picks Ticket
+    </div>
+    <div class="card-body">
+      <ul *ngFor="let pick of picks" class="list-group list-group-flush">
+        <li class="list-group-item">
+            <span class="badge horseNum{{pick.number}} ">{{pick.number}}</span>&nbsp;
+            {{pick.horseName}} - 
+            {{pick.track}} / {{pick.race | ordinal}} Race &nbsp;&nbsp;
+            <span class="badge badge-info">{{pick.play | uppercase}}</span> &nbsp;&nbsp;
+            {{pick.playValue | currency:'USD':true}} TO WIN: {{pick.winValue | currency:'USD':true}}
+          <div class="ml-auto"> 
+            <a type="button" class="fa fa-trash" (click)="onDeleteClick(pick.$key)"></a>
+          </div> 
+        </li>
+      </ul>
+    </div>
+  </div>

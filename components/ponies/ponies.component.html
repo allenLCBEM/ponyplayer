@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="card"  *ngIf="ponies?.length > 0">
+    <div class="card-header">
+      <h2>Select a Race</h2>
+      
+    </div>
+    <div class="card-block">
+      <table>
+        <tr>      
+          <td *ngFor="let race of races">
+              <button 
+                  type="button" 
+                  (click)="setRaceNumber(race)" 
+                  class="btn btn-race"
+                  >{{race}}
+              </button>                
+          </td>
+        </tr>
+      </table>
+      
+    </div>
+  </div>
+  <div *ngIf="(raceNum) > 0" >
+  <table class="table table-bordered">
+    <thead class="thead-inverse">
+      <tr>
+        <th class="text-center">Number</th>
+        <th class="text-center">Horse</th>
+        <th class="text-center">Jockey</th>
+        <th class="text-center">Odds</th>
+        <th class="text-center">WIN</th>
+        <th class="text-center">PLACE</th>
+        <th class="text-center">SHOW</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pony of ponies | arraySort: 'number'" class="table-active">          
+          <td *ngIf="pony.race === (raceNum)" class="text-center">
+            <h4>
+                <span class="badge horseNum{{pony.number}}">{{pony.number }}</span>
+            </h4>
+          </td>
+          <td *ngIf="pony.race === (raceNum)">{{pony.horseName}}</td>
+          <td *ngIf="pony.race === (raceNum)">{{pony.jockey}} </td>
+          <td *ngIf="pony.race === (raceNum)">{{pony.nmr}}/{{pony.dnm}}</td>
+          <td *ngIf="pony.race === (raceNum)" class="pickInputValue">
+            <input type="number" id="win{{pony.number}}" >
+          </td>
+          <td *ngIf="pony.race === (raceNum)" class="pickInputValue">
+            <input type="number" id="place{{pony.number}}" >
+          </td>
+          <td *ngIf="pony.race === (raceNum)" class="pickInputValue">
+            <input type="number" id="show{{pony.number}}" >
+          </td>       
+          <td *ngIf="pony.race === (raceNum)" class="text-center">
+              <button class="btn btn-success" (click)="onPick(pony)" >Add Pick</button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+  </div>
+  <ng-template #noPonies>
+    <hr>
+    <h5>There are no Ponies Available to pick, please check back later.</h5>
+  </ng-template>
+</div>
+
+
+
+

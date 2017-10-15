@@ -1,0 +1,126 @@
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Add Pony
+  </div>
+  <div class="card-block">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+
+      <div class="form-group">
+        <label for="horseName">Pony Name</label>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="pony.horseName"
+               name="horseName"
+               #ponyHorseName="ngModel"
+               minlength="2"
+               required
+        >
+        <div *ngIf="ponyHorseName.errors?.required && ponyHorseName.touched" class="alert alert-danger" > Pony Name is required</div>
+        <div *ngIf="ponyHorseName.errors?.minlength && ponyHorseName.touched" class="alert alert-danger" > Must be at least 2 characters</div>
+      </div>
+
+      <div class="form-group">
+          <label for="jockey">Jockey Name</label>
+          <input type="text"
+                 class="form-control"
+                 [(ngModel)]="pony.jockey"
+                 name="jockey"
+                 #ponyJockey="ngModel"
+                 minlength="2"
+                 required
+          >
+          <div *ngIf="ponyJockey.errors?.required && ponyJockey.touched" class="alert alert-danger" > Jockey Name is required</div>
+          <div *ngIf="ponyJockey.errors?.minlength && ponyJockey.touched" class="alert alert-danger" > Must be at least 2 characters</div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+            RACE DETAILS
+        </div>
+          <br>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <label for="track">Track</label>
+              <input type="text"
+                    class="form-control"
+                    [(ngModel)]="pony.track"
+                    name="track"
+                    #ponyTrack="ngModel"
+                    minlength="2"
+                    required
+              >
+              <div *ngIf="ponyTrack.errors?.required && ponyTrack.touched" class="alert alert-danger" > Track Name is required</div>
+              <div *ngIf="ponyTrack.errors?.minlength && ponyTrack.touched" class="alert alert-danger" > Must be at least 2 characters</div>
+            </div>  
+            
+            <div class="col">
+              <label for="race">Race</label>
+              <input type="text"
+                    class="form-control"
+                    [(ngModel)]="pony.race"
+                    name="race"
+                    #ponyRace="ngModel"
+                    required
+              >
+              <div *ngIf="ponyRace.errors?.required && ponyRace.touched" class="alert alert-danger" > Race Number is required</div>
+            </div>
+            
+            <div class="col">
+              <label for="number">Horse Number</label>
+              <input type="text"
+                    class="form-control"
+                    [(ngModel)]="pony.number"
+                    name="number"
+                    #ponyNumber="ngModel"
+                    required
+              >
+              <div *ngIf="ponyNumber.errors?.required && ponyNumber.touched" class="alert alert-danger" > Horse Number is required</div>
+            </div>
+
+          </div>
+          <br>
+        </div>
+      </div>
+      <br>
+      
+      <div class="card">
+          <div class="card-header">
+              ODDS
+            </div>
+            <br>
+        <div class="card-body">
+          
+          <div class="row">
+            <div class="col">
+              <label for="nmr" > Numerator</label>
+              <input type="text"
+                    class="form-control"
+                    [(ngModel)]="pony.nmr"
+                    name="nmr"
+                    #ponyNmr="ngModel"
+                    required
+              >
+              <div *ngIf="ponyNmr.errors?.required && ponyNmr.touched" class="alert alert-danger" > Numerator is required</div>
+            </div>
+          
+            <div class="col">
+              <label for="dnm" >Denominator</label>
+              <input type="text"
+                    class="form-control"
+                    [(ngModel)]="pony.dnm"
+                    name="dnm"
+                    #ponyDnm="ngModel"
+                    required
+              >
+              <div *ngIf="ponyDnm.errors?.required && ponyDnm.touched" class="alert alert-danger" > Denominator is required</div>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+      <br>
+      <input type="submit" class="btn btn-primary btn-block" value="Submit">
+    </form>
+  </div>
+</div>

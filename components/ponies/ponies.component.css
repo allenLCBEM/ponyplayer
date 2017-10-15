@@ -1,0 +1,18 @@
+.pickInputValue {
+    text-align: center;
+}
+
+.pickInputValue input {
+    width: 60px;
+}
+
+.btn-race{
+    background-color: #ddd;
+    color: #000;
+}
+
+.btn-race .active{
+    background-color: #333;
+    color: #FFF;
+}
+

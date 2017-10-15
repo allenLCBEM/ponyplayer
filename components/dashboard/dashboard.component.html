@@ -1,0 +1,8 @@
+<div *ngIf="trackSelected.length < 1;else ponies">
+    <app-track-select></app-track-select>
+</div>
+<ng-template #ponies>
+        <img class="rounded" src="../../../assets/img/{{this.trackSelected}}.png" alt="{{trackSelected}}">
+    <app-ponies></app-ponies>
+</ng-template>
+
